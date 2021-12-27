@@ -1,6 +1,17 @@
 {
     "authur": [
-        {}
+        {
+            "id": "1",
+            "name": "Maya Angelou"
+        },
+        {
+            "id": "2",
+            "name": "Langston Hughes"
+        },
+        {
+            "id": "3",
+            "name": "Ta-Nehisi Coates"
+        }
     ],
     "recipient": [
         {}
