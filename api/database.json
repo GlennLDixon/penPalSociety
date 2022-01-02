@@ -2,17 +2,36 @@
     "authur": [
         {
             "id": "1",
-            "name": "Maya Angelou"
+            "name": "Maya Angelou",
+            "email": "maya@mayagelou"
         },
         {
             "id": "2",
-            "name": "Langston Hughes"
+            "name": "Langston Hughes",
+            "email": "lang@hughes"
         },
         {
             "id": "3",
-            "name": "Ta-Nehisi Coates"
+            "name": "Ta-Nehisi Coates",
+            "email": "hishi@coates"
         }
     ],
-    "recipient": [],
+    "recipient": [
+        {
+            "id": "1",
+            "name": "Austin Shug",
+            "email": "austin@austin"
+        },
+        {
+            "id": "2",
+            "name": "Lang Huston",
+            "email": "lang@lang"
+        },
+        {
+            "id": "3",
+            "name": "Ta-Nehisi Coates",
+            "email": "hishi@coates"
+        }
+    ],
     "letters": []
 }
