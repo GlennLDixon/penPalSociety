@@ -1,15 +1,15 @@
-import { fetchRequests, fetchCompletions, fetchPlumbers } from "./dataAccess.js"
-import { PenPal } from "./PenPal"
+import { fetchRecipient, fetchLetters, fetchArthurs } from "./dataAccess.js"
+import { PenPal } from "./PenPal.js"
 
 
 const mainContainer = document.querySelector("#container")
 
 const render = () => {
-    fetchRecipe().then(
+    fetchRecipient().then(
         () => {
-            fetchPlumbers().then(
+            fetchArthurs().then(
         ()=> {
-            fetchCompletions().then(
+            fetchLetters().then(
         ()=> {
             mainContainer.innerHTML = PenPal()
         }

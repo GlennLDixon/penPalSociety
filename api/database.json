@@ -1,5 +1,5 @@
 {
-    "authur": [
+    "arthurs": [
         {
             "id": "1",
             "name": "Maya Angelou",
@@ -16,7 +16,7 @@
             "email": "hishi@coates"
         }
     ],
-    "recipient": [
+    "recipients": [
         {
             "id": "1",
             "name": "Austin Shug",

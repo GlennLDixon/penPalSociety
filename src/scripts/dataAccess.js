@@ -1,4 +1,4 @@
-applicationState = {
+const applicationState = {
     recipients: [],
     arthurs: [],
     letters: []
@@ -7,35 +7,49 @@ applicationState = {
 const API = "http://localhost:8088"
 
 export const fetchRecipient = () => {
-    return fetch(`${API}/recipient`)
+    return fetch(`${API}/recipients`)
         .then(response => response.json())
         .then(
-            (serviceRecipient) => {
+            (receivingRecipient) => {
                 // Store the external state in application state
-                applicationState.recipients = serviceRecipient
-
+                applicationState.recipients = receivingRecipient
             }
         )
 }
 
 export const fetchArthurs = () => {
-    return fetch(`${API}/arthur`)
+    return fetch(`${API}/arthurs`)
         .then(response => response.json())
         .then(
-            (servicePlumbers) => {
+            (sendingArthur) => {
                 // Store the external state in application state
-                applicationState.arthurs = servicePlumbers
+                applicationState.arthurs = sendingArthur
+            }
+        )
+}
+
+export const fetchLetters = () => {
+    return fetch(`${API}/letters`)
+        .then(response => response.json())
+        .then(
+            (newLetter) => {
+                // Store the external state in application state
+                applicationState.letters = newLetter
             }
         )
 }
 
 // getting the requests that is stored within applicationState and exporting the data
-export const getRequest = () => {
+export const getRecipients = () => {
     return applicationState.recipients.map(recipient => ({...recipient}))
 }
 
 export const getArthurs = () => {
     return applicationState.arthurs.map(arthur => ({...arthur}))
+}
+
+export const getLetters = () => {
+    return applicationState.letters.map(letter => ({...letter}))
 }
 
 // sending a request that will take in some data and display in on the screen
@@ -57,7 +71,7 @@ export const sendLetters = (userLetter) => {
 }
 
 // fetch method that would deleted the request with the selected id
-export const deleteLetter = (id) => {
+export const deleteLetters = (id) => {
     return fetch(`${API}/letter/${id}`, { method: "DELETE" })
         .then(
             () => {
@@ -67,34 +81,34 @@ export const deleteLetter = (id) => {
 }
 
 
-export const saveCompletion = (saveCompletion) => {
-    const fetchCompletions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(saveCompletion)
-    }
-    const mainContainer = document.querySelector("#container")
+// export const saveLetters = (saveCompletion) => {
+//     const fetchCompletions = {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json"
+//         },
+//         body: JSON.stringify(saveCompletion)
+//     }
+//     const mainContainer = document.querySelector("#container")
 
 
-    return fetch(`${API}/completions/`, fetchCompletions)
-        .then(response => response.json())
-        .then(() => {
-            //userServiceRequest.POST -> PHP not JS 
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
+//     return fetch(`${API}/letters/`, fetchCompletions)
+//         .then(response => response.json())
+//         .then(() => {
+//             //userServiceRequest.POST -> PHP not JS 
+//             mainContainer.dispatchEvent(new CustomEvent("stateChanged"))
 
-        })
-}
+//         })
+// }
 
-export const fetchCompletions = () => {
-        return fetch(`${API}/completions/`)
-        .then(response => response.json())
-        .then(
-            (completedRequests) => {
-                // Store the external state in application state
-                applicationState.completions = completedRequests
+// export const fetchLetters= () => {
+//         return fetch(`${API}/letters/`)
+//         .then(response => response.json())
+//         .then(
+//             (completedLetters) => {
+//                 // Store the external state in application state
+//                 applicationState.completions = completedLetters
                 
-            }
-        )
-}
+//             }
+//         )
+// }
