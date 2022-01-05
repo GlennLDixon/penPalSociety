@@ -1,5 +1,12 @@
 import { getLetters, deleteLetters, getArthurs} from "./dataAccess.js";
 
+// this section will display the letter which will have an list of the letters that will display
+// the full name of recipients
+// the info of the letter
+// the full name of arthurs
+// the date it was sent on and
+// the topic
+
 const mainContainer = document.querySelector("#container")
 
 mainContainer.addEventListener("click", click => {
@@ -11,12 +18,13 @@ mainContainer.addEventListener("click", click => {
 
 
 const convertRequestToListElement = (request) => {
-    const arthurs = getArthurs()
+    let arthurs = getArthurs()
+    let recipients = getRecipients()
 
     return  `
     <li>
         ${request.description}
-        <select class="plumbers" id="plumbers">
+        <select class="arthurs" id="arthurs">
         <option value="">Choose</option>
         ${
             arthurs.map(
