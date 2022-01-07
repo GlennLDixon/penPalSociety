@@ -51,11 +51,11 @@ export const LetterForm = () => {
         <div>
             <label class="label" for="letterTopics">Topics</label>
             <ul>
-            <li><input type="radio" name="Business"/>Business</li>
-            <li><input type="radio" name="Friendly"/>Friendly</li>
-            <li><input type="radio" name="Family"/>Family</li>
-            <li><input type="radio" name="Congratulations"/>Congratulations</li>
-            <li><input type="radio" name="Condolences"/>Condolences</li>
+            <li><input type="radio" name="topic" value="Business"/>Business</li>
+            <li><input type="radio" name="topic" value="Friendly"/>Friendly</li>
+            <li><input type="radio" name="topic" value="Family"/>Family</li>
+            <li><input type="radio" name="topic" value="Congratulations"/>Congratulations</li>
+            <li><input type="radio" name="topic" value="Condolences"/>Condolences</li>
             </ul>
         </div>
         <div class="field">
