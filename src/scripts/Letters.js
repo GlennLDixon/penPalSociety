@@ -19,7 +19,6 @@ mainContainer.addEventListener("click", click => {
 
 const convertRequestToListElement = (request) => {
     let arthurs = getArthurs()
-    let recipients = getRecipients()
 
     return  `
     <li>

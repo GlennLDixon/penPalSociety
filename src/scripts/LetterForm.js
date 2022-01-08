@@ -1,25 +1,25 @@
-import { getArthurs, getRecipients } from "./dataAccess.js"
+import {getArthurs, getRecipients, sendLetters} from "./dataAccess.js"
 
 const mainContainer = document.querySelector("#container")
 
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "sendLetter") {
         // Get what the user typed into the form fields
-        const userDescription = document.querySelector("input[name='serviceDescription']").value
-        const userAddress = document.querySelector("input[name='letter']").value
-        const userBudget = document.querySelector("input[name='serviceBudget']").value
-        const userDate = document.querySelector("input[name='serviceDate']").value
+        const userArthurs = document.querySelector("option[name='arthur']").value
+        const userLetter = document.querySelector("input[name='letter']").value
+        const userTopics = document.querySelector("input[name='topic']").value
+        const userRecipients = document.querySelector("option[name='recipient']").value
 
         // Make an object out of the user input
         const dataToSendToAPI = {
-            description: userDescription,
-            address: userAddress,
-            budget: userBudget,
-            neededBy: userDate
+            arthurs: userArthurs,
+            letter: userLetter,
+            budget: userTopics,
+            recipients: userRecipients
         }
 
         // Send the data to the API for permanent storage
-        sendRequest(dataToSendToAPI)
+        sendLetters(dataToSendToAPI)
     }
 })
 
@@ -29,8 +29,9 @@ mainContainer.addEventListener('change', ()=> {
 })
 
 export const LetterForm = () => {
-    let arthurs = getArthurs()
-    let recipients = getRecipients()
+    const arthurs = getArthurs()
+    const recipients = getRecipients()
+    // console.log(getRecipients())
     let html = `
         <div class="field">
         <label class="label" for="letterArthur">Arthur</label>
@@ -39,7 +40,7 @@ export const LetterForm = () => {
         ${
             arthurs.map(
                 arthur => {
-                    return `<option value="${arthur.id}">${arthur.name}</option>`
+                    return `<option name="arthur" value="${arthur.id}">${arthur.name}</option>`
                 }
             ).join("")}
         </select>
@@ -65,7 +66,7 @@ export const LetterForm = () => {
         ${
             recipients.map(
                 recipient => {
-                    return `<option value="${recipient.id}"><${recipient.name}</option>`
+                    return `<option name="recipient" value="${recipient.id}">${recipient.name}</option>`
                 }
             ).join("")}
             </select>
