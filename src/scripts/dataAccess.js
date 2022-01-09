@@ -1,7 +1,8 @@
 const applicationState = {
     recipients: [],
     arthurs: [],
-    letters: []
+    letters: [],
+    topics: []
 }
 
 const API = "http://localhost:8088"
@@ -39,6 +40,17 @@ export const fetchLetters = () => {
         )
 }
 
+export const fetchTopics = () => {
+    return fetch(`${API}/Topics`)
+        .then(response => response.json())
+        .then(
+            (myTopic) => {
+                // Store the external state in application state
+                applicationState.topics = myTopic
+            }
+        )
+}
+
 // getting the requests that is stored within applicationState and exporting the data
 export const getRecipients = () => {
     return applicationState.recipients.map(recipient => ({...recipient}))
@@ -50,6 +62,10 @@ export const getArthurs = () => {
 
 export const getLetters = () => {
     return applicationState.letters.map(letter => ({...letter}))
+}
+
+export const getTopics = () => {
+    return applicationState.topics.map(topic => ({...topic}))
 }
 
 // sending a request that will take in some data and display in on the screen
@@ -66,7 +82,7 @@ export const sendLetters = (userLetter) => {
     return fetch(`${API}/letters`, fetchOptions)
         .then(response => response.json())
         .then(() => {
-            mainContainer.dispatchEvent(new CustomEvent("stateChanged")) 
+            // mainContainer.dispatchEvent(new CustomEvent("stateChanged")) 
         })
 }
 
@@ -108,7 +124,6 @@ export const deleteLetters = (id) => {
 //             (completedLetters) => {
 //                 // Store the external state in application state
 //                 applicationState.completions = completedLetters
-                
 //             }
 //         )
 // }

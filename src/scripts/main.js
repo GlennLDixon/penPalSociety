@@ -1,4 +1,4 @@
-import { fetchRecipient, fetchLetters, fetchArthurs } from "./dataAccess.js"
+import { fetchRecipient, fetchLetters, fetchArthurs, fetchTopics } from "./dataAccess.js"
 import { PenPal } from "./PenPal.js"
 
 
@@ -11,7 +11,11 @@ const render = () => {
         ()=> {
             fetchLetters().then(
         ()=> {
-            mainContainer.innerHTML = PenPal()
+            fetchTopics().then(
+                ()=> {
+                    mainContainer.innerHTML = PenPal()
+                }
+            )
         }
     )
     }

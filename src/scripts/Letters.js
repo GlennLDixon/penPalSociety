@@ -1,4 +1,4 @@
-import { getLetters, deleteLetters, getArthurs} from "./dataAccess.js";
+import { getLetters, getRecipients, getArthurs} from "./dataAccess.js";
 
 // this section will display the letter which will have an list of the letters that will display
 // the full name of recipients
@@ -7,36 +7,29 @@ import { getLetters, deleteLetters, getArthurs} from "./dataAccess.js";
 // the date it was sent on and
 // the topic
 
-const mainContainer = document.querySelector("#container")
+// const mainContainer = document.querySelector("#container")
 
-mainContainer.addEventListener("click", click => {
-    if (click.target.id.startsWith("request--")) {
-        const [,requestId] = click.target.id.split("--")
-        deleteLetters(parseInt(requestId))
-    }
-})
-
+// mainContainer.addEventListener("click", click => {
+//     if (click.target.id.startsWith("request--")) {
+//         const [,requestId] = click.target.id.split("--")
+//         deleteLetters(parseInt(requestId))
+//     }
+// })
 
 const convertRequestToListElement = (request) => {
-    let arthurs = getArthurs()
+    const recipients = getRecipients()
+    const arthurs = getArthurs()
 
-    return  `
-    <li>
-        ${request.description}
-        <select class="arthurs" id="arthurs">
-        <option value="">Choose</option>
-        ${
-            arthurs.map(
-                arthur => {
-                    return `<option value="${request.id}--${arthur.id}">${arthur.name}</option>`
-                }
-            ).join("")
-        }
-        </select>
-        <button class="request_delete"
-            id="request--${request.id}">
-            Delete
-        </button>
+    const sendingArthur = recipients.find(arthur => {return arthur})
+    const reciever = arthurs.find(recipient => {return recipient})
+
+    console.log(reciever)
+    console.log(sendingArthur)
+
+    return  `<li class="letter">
+    <p>${sendingArthur.name} ${sendingArthur.email}<p>
+    <p>${request.letter}</p>
+    <p>${reciever.name} ${reciever.email}</p> 
     </li>`
 }
 

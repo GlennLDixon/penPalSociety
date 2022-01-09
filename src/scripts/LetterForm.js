@@ -5,17 +5,17 @@ const mainContainer = document.querySelector("#container")
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "sendLetter") {
         // Get what the user typed into the form fields
-        const userArthurs = document.querySelector("option[name='arthur']").value
-        const userLetter = document.querySelector("input[name='letter']").value
-        const userTopics = document.querySelector("input[name='topic']").value
-        const userRecipients = document.querySelector("option[name='recipient']").value
+        const userArthur = document.querySelector("option[name='arthur']").value
+        const userLetter = document.querySelector("textarea[name='letter']").value
+        const userTopics = document.querySelector("input[name='topic']:checked").value
+        const userRecipient = document.querySelector("option[name='recipient']").value
 
         // Make an object out of the user input
         const dataToSendToAPI = {
-            arthurs: userArthurs,
+            arthurId: parseInt(userArthur),
             letter: userLetter,
-            budget: userTopics,
-            recipients: userRecipients
+            topics: userTopics,
+            recipientId: parseInt(userRecipient)
         }
 
         // Send the data to the API for permanent storage
@@ -31,7 +31,6 @@ mainContainer.addEventListener('change', ()=> {
 export const LetterForm = () => {
     const arthurs = getArthurs()
     const recipients = getRecipients()
-    // console.log(getRecipients())
     let html = `
         <div class="field">
         <label class="label" for="letterArthur">Arthur</label>
@@ -47,11 +46,12 @@ export const LetterForm = () => {
         </div>
         <div class="field">
             <label class="label" for="letterInput">Letter</label>
-            <input type="text" name="letter" class="input" />
+            <textarea name="letter" class="input"> </textarea>
         </div>
         <div>
             <label class="label" for="letterTopics">Topics</label>
             <ul>
+            <label class="label" for="Business">Business</label>
             <li><input type="radio" name="topic" value="Business"/>Business</li>
             <li><input type="radio" name="topic" value="Friendly"/>Friendly</li>
             <li><input type="radio" name="topic" value="Family"/>Family</li>
