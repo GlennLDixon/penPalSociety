@@ -5,17 +5,18 @@ const mainContainer = document.querySelector("#container")
 mainContainer.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "sendLetter") {
         // Get what the user typed into the form fields
-        const userArthur = document.querySelector("option[name='arthur']").value
+        const userArthur = document.getElementById("arthurs").value
         const userLetter = document.querySelector("textarea[name='letter']").value
         const userTopics = document.querySelector("input[name='topic']:checked").value
-        const userRecipient = document.querySelector("option[name='recipient']").value
+        const userRecipient = document.getElementById("recipients").value
 
         // Make an object out of the user input
         const dataToSendToAPI = {
             arthurId: parseInt(userArthur),
             letter: userLetter,
             topics: userTopics,
-            recipientId: parseInt(userRecipient)
+            recipientId: parseInt(userRecipient),
+            date: new Date().toLocaleDateString()
         }
 
         // Send the data to the API for permanent storage
@@ -61,7 +62,7 @@ export const LetterForm = () => {
         </div>
         <div class="field">
         <label class="label" for="Arthur">Recipient</label>
-        <select name="recipient" id="recipient">
+        <select name="recipient" id="recipients">
         <option value="">choose</option>
         ${
             recipients.map(
