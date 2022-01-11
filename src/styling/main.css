@@ -3,3 +3,16 @@
     height: 25px;
     padding-left: 15px;
 }
+
+.letter { 
+    border: 1px solid red;
+    padding: 5px;
+    width: 45%;
+}
+
+.letter li {
+    background: lightblue;
+    list-style: none;
+    padding: 10px 5px;
+    border: 1px solid red;
+}
