@@ -1,37 +1,82 @@
 {
-    "arthurs": [
-        {
-            "id": "1",
-            "name": "Maya Angelou",
-            "email": "maya@mayagelou"
-        },
-        {
-            "id": "2",
-            "name": "Langston Hughes",
-            "email": "lang@hughes"
-        },
-        {
-            "id": "3",
-            "name": "Ta-Nehisi Coates",
-            "email": "hishi@coates"
-        }
-    ],
-    "recipients": [
-        {
-            "id": "1",
-            "name": "Austin Shug",
-            "email": "austin@austin"
-        },
-        {
-            "id": "2",
-            "name": "Lang Huston",
-            "email": "lang@lang"
-        },
-        {
-            "id": "3",
-            "name": "Ta-Nehisi Coates",
-            "email": "hishi@coates"
-        }
-    ],
-    "letters": []
+  "arthurs": [
+    {
+      "id": "1",
+      "name": "Maya Angelou",
+      "email": "maya@mayagelou"
+    },
+    {
+      "id": "2",
+      "name": "Langston Hughes",
+      "email": "lang@hughes"
+    },
+    {
+      "id": "3",
+      "name": "Ta-Nehisi Coates",
+      "email": "hishi@coates"
+    }
+  ],
+  "recipients": [
+    {
+      "id": "1",
+      "name": "Austin Shug",
+      "email": "austin@austin"
+    },
+    {
+      "id": "2",
+      "name": "Lang Huston",
+      "email": "lang@lang"
+    },
+    {
+      "id": "3",
+      "name": "Ta-Nehisi Coates",
+      "email": "hishi@coates"
+    }
+  ],
+  "Topics": [
+    {
+      "id": "1",
+      "name": "Business"
+    },
+    {
+      "id": "2",
+      "name": "Friendly"
+    },
+    {
+      "id": "3",
+      "name": "Family"
+    },
+    {
+      "id": "4",
+      "name": "Congratulations"
+    },
+    {
+      "id": "5",
+      "name": "Condolences"
+    }
+  ],
+  "letters": [
+    {
+      "arthurId": 2,
+      "letter": " ",
+      "topics": "Condolences",
+      "recipientId": 1,
+      "id": 1
+    },
+    {
+      "arthurId": 3,
+      "letter": " Testing",
+      "topics": "Family",
+      "recipientId": 3,
+      "id": 2
+    },
+    {
+      "arthurId": 1,
+      "letter": " fdafdsafd",
+      "topics": "Friendly",
+      "recipientId": 1,
+      "date": "1/9/2022",
+      "id": 3
+    }
+  ]
 }
