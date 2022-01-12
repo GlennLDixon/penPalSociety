@@ -1,13 +1,42 @@
+.letterForm {
+    margin: 10px 5px;
+}
+
+
 .field {
-    background: lightgray;
-    height: 25px;
-    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 5px 20px 5px;
+    padding: 10px 10px;
+}
+
+.field textarea {
+    resize: none;
+    width: 50%;
+    height: 200px;
+}
+
+.label {
+    margin: 0 0 10px 0;
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.topic-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 10px 5px 20px 5px;
+    padding: 10px 10px;
+    width: 50%;
 }
 
 .letter { 
     border: 1px solid red;
     padding: 5px;
-    width: 45%;
+    width: 30%;
 }
 
 .letter li {
@@ -15,4 +44,47 @@
     list-style: none;
     padding: 10px 5px;
     border: 1px solid red;
+    margin: 20px 0;
+}
+
+.letter li p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 20px 10px;
+}
+
+.letter-topic {
+    border: 1px solid black;
+    background-color: #e0b784;
+    width: 110px;
+    height: 20px;
+    padding-top: 5px;
+    text-align: center;
+    border-radius: 25px;
+}
+
+.letter-date {
+    font-size: .8rem;
+}
+
+.topic-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.topic-list li {
+    margin: 0 10px;
+}
+
+select {
+    width: 50%;
+    height: 30px;
+}
+
+button {
+    margin-left: 15px;
+    width: 10%;
+    height: 25px;
 }
