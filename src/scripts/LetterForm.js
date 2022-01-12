@@ -14,7 +14,7 @@ mainContainer.addEventListener("click", clickEvent => {
         const dataToSendToAPI = {
             arthurId: parseInt(userArthur),
             letter: userLetter,
-            topics: userTopics,
+            topic: userTopics,
             recipientId: parseInt(userRecipient),
             date: new Date().toLocaleDateString()
         }
@@ -35,7 +35,7 @@ export const LetterForm = () => {
     let html = `
         <div class="field">
         <label class="label" for="letterArthur">Arthur</label>
-        <select name="arthurs" id="arthurs">
+        <select name="arthurs" id="arthurs" class="input-box">
         <option value="">choose</option>
         ${
             arthurs.map(
@@ -47,22 +47,21 @@ export const LetterForm = () => {
         </div>
         <div class="field">
             <label class="label" for="letterInput">Letter</label>
-            <textarea name="letter" class="input"> </textarea>
+            <textarea name="letter" class="input-box"> </textarea>
         </div>
-        <div>
+        <div class="topic-section">
             <label class="label" for="letterTopics">Topics</label>
-            <ul>
-            <label class="label" for="Business">Business</label>
-            <li><input type="radio" name="topic" value="Business"/>Business</li>
-            <li><input type="radio" name="topic" value="Friendly"/>Friendly</li>
-            <li><input type="radio" name="topic" value="Family"/>Family</li>
-            <li><input type="radio" name="topic" value="Congratulations"/>Congratulations</li>
-            <li><input type="radio" name="topic" value="Condolences"/>Condolences</li>
+            <ul class="topic-list">
+            <li><input class="list-item" type="radio" name="topic" value="Business"/>Business</li>
+            <li><input class="list-item" type="radio" name="topic" value="Friendly"/>Friendly</li>
+            <li><input class="list-item" type="radio" name="topic" value="Family"/>Family</li>
+            <li><input class="list-item" type="radio" name="topic" value="Congratulations"/>Congratulations</li>
+            <li><input class="list-item" type="radio" name="topic" value="Condolences"/>Condolences</li>
             </ul>
         </div>
         <div class="field">
         <label class="label" for="Arthur">Recipient</label>
-        <select name="recipient" id="recipients">
+        <select name="recipient" id="recipients" class="input-box">
         <option value="">choose</option>
         ${
             recipients.map(
