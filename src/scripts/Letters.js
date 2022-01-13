@@ -15,13 +15,24 @@ const convertRequestToListElement = (request) => {
         }
         )
 
-    return  `<li class="listOfLetters">
-    <p class="letter-sender">${sendingArthur.name} (${sendingArthur.email})</p>
-    <p class="letter-letter">${request.letter}</p>
-    <p class="letter-reciever">${reciever.name} (${reciever.email})</p> 
-    <span class="letter-date">${request.date}</span>
-    <p class="letter-topic">${request.topic}</p>
-    </li>`
+        if (request.id % 2 == 0) {
+            return  `<li id="letter" class="listOfLetters">
+            <p class="letter-sender">${sendingArthur.name} (${sendingArthur.email})</p>
+            <p class="letter-letter">${request.letter}</p>
+            <p class="letter-reciever">${reciever.name} (${reciever.email})</p> 
+            <span class="letter-date">${request.date}</span>
+            <p class="letter-topic">${request.topic}</p>
+            </li>`
+        } else {
+            return  `<li id="letter" class="letter-odd">
+            <p class="letter-sender">${sendingArthur.name} (${sendingArthur.email})</p>
+            <p class="letter-letter">${request.letter}</p>
+            <p class="letter-reciever">${reciever.name} (${reciever.email})</p> 
+            <span class="letter-date">${request.date}</span>
+            <p class="letter-topic">${request.topic}</p>
+            </li>`
+        }
+
 }
 
 export const Letters = () => {
