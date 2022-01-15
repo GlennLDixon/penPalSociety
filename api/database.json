@@ -57,26 +57,28 @@
   ],
   "letters": [
     {
-      "arthurId": 2,
-      "letter": " ",
-      "topics": "Condolences",
-      "recipientId": 1,
-      "id": 1
-    },
-    {
-      "arthurId": 3,
-      "letter": " Testing",
-      "topics": "Family",
-      "recipientId": 3,
-      "id": 2
-    },
-    {
       "arthurId": 1,
       "letter": " fdafdsafd",
-      "topics": "Friendly",
+      "topic": "Friendly",
       "recipientId": 1,
       "date": "1/9/2022",
       "id": 3
+    },
+    {
+      "arthurId": 3,
+      "letter": " Another day",
+      "topic": "Congratulations",
+      "recipientId": 2,
+      "date": "1/11/2022",
+      "id": 4
+    },
+    {
+      "arthurId": 3,
+      "letter": " This was a very simple task",
+      "topic": "Business",
+      "recipientId": 2,
+      "date": "1/12/2022",
+      "id": 5
     }
   ]
 }
